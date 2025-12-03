@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dugnad School Uganda - Excellence in Education for Trinity Term 2026">
+    <title>Dugnad Secondary School | Trinity Term 2026</title>
+    
+    <!-- Google Fonts: Poppins for readability, Playfair Display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- =====================================================
+         EMBEDDED CSS STYLES
+         ===================================================== -->
+    <style>
+        /* ===========================================
+           1. ROOT VARIABLES & RESET
+           =========================================== */
+        :root {
+            /* BRAND COLORS EXTRACTED FROM LOGO */
+            --primary-navy: #0B2648;     /* Deep Navy from Logo */
+            --primary-gold: #FDB813;     /* Ugandan Sunshine Yellow */
+            --primary-white: #FFFFFF;
+            
+            /* SUPPORTING PALETTE */
+            --accent-red: #D9261C;       /* Brick/Earth Red (Ugandan Flag) */
+            --bg-cream: #FFFDF5;         /* Soft reading background */
+            
+            --text-dark: #1A1A1A;
+            --text-grey: #555555;
+            
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===========================================
+           2. UTILITY CLASSES
+           =========================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-gold);
+            margin: 10px auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-navy);
+            color: white;
+            box-shadow: 0 4px 15px rgba(11, 38, 72, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #163b6b;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-gold);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: var(--primary-navy);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* ===========================================
+           3. NAVIGATION
+           =========================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px; /* Increased slightly for logo */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 65px; /* Adjust height as needed */
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            line-height: 1.1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            color: var(--primary-gold);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-navy);
+        }
+
+        /* ===========================================
+           4. HERO SECTION
+           =========================================== */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            /* Updated overlay to use Navy tint */
+            background: linear-gradient(rgba(11, 38, 72, 0.7), rgba(11, 38, 72, 0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            margin-top: 90px; /* Push down below fixed nav */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .term-badge {
+            background-color: var(--primary-gold);
+            color: var(--primary-navy);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===========================================
+           5. ANNOUNCEMENTS (TERM DATES)
+           =========================================== */
+        .announcements {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 40px 0;
+            margin-top: -5px; 
+        }
+
+        .announcement-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .date-card h3 {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 5px;
+        }
+
+        .date-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===========================================
+           6. ABOUT US
+           =========================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--accent-red);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-grey);
+        }
+
+        .vision-box {
+            background: white;
+            padding: 25px;
+            border-left: 5px solid var(--primary-navy);
+            margin-top: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .vision-box h4 {
+            color: var(--primary-navy);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            /* Box shadow updated to navy */
+            box-shadow: 20px 20px 0px var(--primary-navy);
+        }
+
+        /* ===========================================
+           7. ACADEMICS
+           =========================================== */
+        .academics {
+            background-color: white;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .subject-card {
+            background: var(--bg-cream);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--primary-gold);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-navy);
+        }
+
+        /* ===========================================
+           8. ADMISSIONS
+           =========================================== */
+        .admissions {
+            background: linear-gradient(to right, #FFFDF5, #fff);
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .step-number {
+            background-color: var(--primary-navy);
+            color: var(--primary-gold);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .cta-box {
+            text-align: center;
+            background-color: var(--primary-navy);
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        .cta-box button {
+            color: var(--primary-navy);
+            background-color: var(--primary-gold);
+            border: none;
+        }
+        
+        .cta-box button:hover {
+            background-color: white;
+            color: var(--primary-navy);
+            transform: translateY(-3px);
+        }
+
+        /* ===========================================
+           9. CONTACT FORM
+           =========================================== */
+        .contact-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-navy);
+            outline: none;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .error-msg {
+            color: var(--accent-red);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* ===========================================
+           10. FOOTER
+           =========================================== */
+        footer {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-logo-img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 15px;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===========================================
+           11. NOTIFICATION POPUP
+           =========================================== */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2E8B57; /* Success Green */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+        }
+
+        /* ===========================================
+           12. MEDIA QUERIES (RESPONSIVE)
+           =========================================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                margin-top: 90px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1; /* Image on top for mobile */
+            }
+            
+            .about-image img {
+                box-shadow: 10px 10px 0px var(--primary-navy);
+            }
+
+            .announcement-grid {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <!-- LOGO INSERTION -->
+            <a href="#" class="logo-container">
+                <!-- IMPORTANT: Replace 'dugnad_logo.jpg' with your actual file path if different -->
+                <img src="dugnad_logo.jpg" alt="Dugnad School Logo" class="logo-img">
+                <div class="logo-text">
+                    Dugnad <span>Secondary School</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars">☰</i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <span class="term-badge">Opening Trinity Term 2026</span>
+            <h1>Raising the Next Generation of African Leaders</h1>
+            <p>Welcome to Dugnad Secondary School. Excellence, Integrity, and Community.</p>
+            <div>
+                <a href="#admissions" class="btn btn-primary">Apply Now</a>
+                <a href="#about" class="btn btn-outline" style="color: white; border-color: white;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements Banner -->
+    <div class="announcements">
+        <div class="container announcement-grid">
+            <div class="date-card">
+                <h3>Jan 05</h3>
+                <p>Staff Reporting</p>
+            </div>
+            <div class="date-card">
+                <h3>Feb 02</h3>
+                <p>Term Begins</p>
+            </div>
+            <div class="date-card">
+                <h3>May 01</h3>
+                <p>Sports Day</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us -->
+    <section id="about">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Story</h2>
+                <p>More than just a school, we are a community.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>History & Heritage</h3>
+                    <p>Founded to serve the local community, Dugnad School has grown from a humble classroom to a center of academic excellence. "Dugnad" represents the spirit of communal work and cooperation.</p>
+                    <p>We provide a safe, nurturing environment where traditional African values meet modern educational standards.</p>
+                    
+                    <div class="vision-box">
+                        <h4>Our Mission</h4>
+                        <p>To empower Ugandan youth through holistic education, character building, and practical skills for a self-reliant future.</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Image: African Students Reading -->
+                    <img src="https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=800&auto=format&fit=crop" alt="Happy African students learning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics -->
+    <section id="academics" class="academics">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Academics</h2>
+                <p>A curriculum designed for the future.</p>
+            </div>
+            
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="icon">⚗️</div>
+                    <h3>Science</h3>
+                    <p>Practical labs focusing on Biology, Chemistry, and Agriculture tailored to our environment.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="icon">📐</div>
+                    <h3>Mathematics</h3>
+                    <p>Building strong analytical foundations and problem-solving skills.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="icon">🎨</div>
+                    <h3>Arts & Culture</h3>
+                    <p>Celebrating Ugandan heritage through music, dance, drama, and visual arts.</p>
+                </div>
+                <div class="subject-card">
+                    <div class="icon">💻</div>
+                    <h3>Technology</h3>
+                    <p>Modern computer skills to prepare students for the digital global economy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions -->
+    <section id="admissions" class="admissions">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Join Our Family</h2>
+                <p>Admissions for Trinity Term 2026 are now open.</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Visit Us</h3>
+                        <p>Come for a school tour any weekday between 9am and 3pm.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Interview</h3>
+                        <p>A brief, friendly chat with the student and parents to assess needs.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Registration</h3>
+                        <p>Submit forms and secure your spot for the 2026 academic year.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Ready to apply?</h3>
+                <p style="margin-bottom: 20px;">Download our detailed prospectus to learn more about fees and requirements.</p>
+                <button onclick="downloadProspectus()" class="btn btn-primary">Download Prospectus (PDF)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Get in Touch</h2>
+                <p>We would love to hear from you.</p>
+            </div>
+
+            <div class="contact-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Parent/Guardian Name">
+                        <div class="error-msg" id="nameError">Name is required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="example@email.com">
+                        <div class="error-msg" id="emailError">Valid email is required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" placeholder="How can we help you?"></textarea>
+                        <div class="error-msg" id="messageError">Message cannot be empty</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <!-- FOOTER LOGO -->
+                    <img src="dugnad_logo.jpg" alt="Dugnad School Logo" class="footer-logo-img">
+                    <p>Excellence in Education.</p>
+                    <p>Kampala, Uganda</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: #ccc; text-decoration: none;">Home</a></li>
+                        <li><a href="#admissions" style="color: #ccc; text-decoration: none;">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>+256 700 123 456</p>
+                    <p>info@dugnadschool.ug</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Dugnad Secondary School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Pop-up -->
+    <div id="notification" class="notification">
+        <span>✅</span>
+        <span id="notification-text">Message Sent Successfully!</span>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT LOGIC
+         ===================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- 1. Mobile Menu Toggle --- */
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const links = document.querySelectorAll('.nav-links a');
+
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Close menu when link is clicked
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileToggle.textContent = '☰';
+                });
+            });
+
+            /* --- 2. Sticky Navigation Shadow on Scroll --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+                } else {
+                    navbar.style.boxShadow = "none";
+                }
+            });
+
+            /* --- 3. Contact Form Validation --- */
+            const form = document.getElementById('contactForm');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Get fields
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const message = document.getElementById('message');
+
+                // Reset errors
+                document.querySelectorAll('.error-msg').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.form-control').forEach(el => el.style.borderColor = '#ddd');
+
+                // Name Validation
+                if (name.value.trim() === '') {
+                    document.getElementById('nameError').style.display = 'block';
+                    name.style.borderColor = '#D9261C'; // Error Red
+                    isValid = false;
+                }
+
+                // Email Validation (Simple Regex)
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value.trim())) {
+                    document.getElementById('emailError').style.display = 'block';
+                    email.style.borderColor = '#D9261C'; // Error Red
+                    isValid = false;
+                }
+
+                // Message Validation
+                if (message.value.trim() === '') {
+                    document.getElementById('messageError').style.display = 'block';
+                    message.style.borderColor = '#D9261C'; // Error Red
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    showNotification('Thank you! We will contact you shortly.');
+                    form.reset();
+                }
+            });
+
+            /* --- 4. Notification System --- */
+            function showNotification(msg) {
+                const notif = document.getElementById('notification');
+                const notifText = document.getElementById('notification-text');
+                
+                notifText.textContent = msg;
+                notif.classList.add('show');
+
+                setTimeout(() => {
+                    notif.classList.remove('show');
+                }, 3000);
+            }
+
+            /* --- 5. Mock Download Function --- */
+            window.downloadProspectus = function() {
+                showNotification('Downloading Prospectus... (Mock)');
+            };
+        });
+    </script>
+</body>
+</html>
