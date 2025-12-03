@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768">
+  <defs>
+    <style>
+      .shield-bg { fill: #0B2648; }
+      .shield-border { fill: none; stroke: #FFFFFF; stroke-width: 12; }
+      .elements { fill: #FFFFFF; }
+    </style>
+  </defs>
+  
+  <!-- Shield Background -->
+  <path class="shield-bg" d="M 384 50 L 650 120 L 650 380 C 650 550 384 700 384 700 C 384 700 118 550 118 380 L 118 120 Z"/>
+  
+  <!-- Shield Border -->
+  <path class="shield-border" d="M 384 70 L 630 135 L 630 380 C 630 535 384 675 384 675 C 384 675 138 535 138 380 L 138 135 Z"/>
+  
+  <!-- School Building -->
+  <g class="elements">
+    <!-- Roof -->
+    <polygon points="265,180 385,140 505,180"/>
+    <!-- Central Peak -->
+    <rect x="375" y="130" width="20" height="30"/>
+    <polygon points="370,125 385,110 400,125"/>
+    <!-- Left Wing -->
+    <rect x="265" y="180" width="90" height="50"/>
+    <!-- Right Wing -->
+    <rect x="415" y="180" width="90" height="50"/>
+    <!-- Center Building -->
+    <rect x="355" y="155" width="60" height="75"/>
+    <!-- Windows Left Wing -->
+    <rect x="280" y="195" width="25" height="25"/>
+    <rect x="315" y="195" width="25" height="25"/>
+    <!-- Windows Right Wing -->
+    <rect x="430" y="195" width="25" height="25"/>
+    <rect x="465" y="195" width="25" height="25"/>
+    <!-- Center Door -->
+    <rect x="375" y="200" width="20" height="30" rx="10" ry="10"/>
+  </g>
+  
+  <!-- Open Book -->
+  <g class="elements">
+    <path d="M 230,280 Q 230,260 250,260 L 370,260 L 370,330 L 250,330 Q 230,330 230,310 Z"/>
+    <path d="M 538,280 Q 538,260 518,260 L 398,260 L 398,330 L 518,330 Q 538,330 538,310 Z"/>
+    <!-- Book Pages -->
+    <line x1="260" y1="275" x2="360" y2="275" stroke="#0B2648" stroke-width="2"/>
+    <line x1="260" y1="290" x2="360" y2="290" stroke="#0B2648" stroke-width="2"/>
+    <line x1="260" y1="305" x2="360" y2="305" stroke="#0B2648" stroke-width="2"/>
+    <line x1="408" y1="275" x2="508" y2="275" stroke="#0B2648" stroke-width="2"/>
+    <line x1="408" y1="290" x2="508" y2="290" stroke="#0B2648" stroke-width="2"/>
+    <line x1="408" y1="305" x2="508" y2="305" stroke="#0B2648" stroke-width="2"/>
+  </g>
+  
+  <!-- Text: DUGNAD -->
+  <text x="384" y="420" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#FFFFFF" text-anchor="middle">DUGNAD</text>
+  
+  <!-- Text: SECONDARY -->
+  <text x="384" y="480" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#FFFFFF" text-anchor="middle">SECONDARY</text>
+  
+  <!-- Text: SCHOOL -->
+  <text x="384" y="530" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#FFFFFF" text-anchor="middle">SCHOOL</text>
+</svg>
